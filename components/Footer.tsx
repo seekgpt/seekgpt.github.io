@@ -46,7 +46,7 @@ export const Footer = () => {
 							}}
 						>
 							A project by{" "}
-							<Link color="gray" href="https://narzary.com">
+							<Link color="gray" href="https://www.narzary.com">
 								NarzaryAI
 							</Link>
 							.
