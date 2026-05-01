@@ -83,6 +83,13 @@ jobs:
         #run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.DATABASE_URL }} 
+          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.DATABASE_KEY }} 
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.DATABASE_KEY }}
+          GMAIL_APP_USER: ${{ secrets.SEEKGPT_EMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.SEEKGPT_EMAIL_PASSWORD }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
